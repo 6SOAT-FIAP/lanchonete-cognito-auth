@@ -19,10 +19,10 @@ resource "aws_cognito_user_pool" "clientes_lanchonete_user_pool" {
   }
 
   lambda_config {
-    pre_sign_up                    = aws_lambda_function.lanchonete_lambda_auth.arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-pre-sign-up
-    define_auth_challenge          = aws_lambda_function.lanchonete_lambda_auth.arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-define-auth-challenge
-    create_auth_challenge          = aws_lambda_function.lanchonete_lambda_auth.arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-create-auth-challenge
-    verify_auth_challenge_response = aws_lambda_function.lanchonete_lambda_auth.arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-verify-auth-challenge
+    pre_sign_up                    = arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-pre-sign-up
+    define_auth_challenge          = arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-define-auth-challenge
+    create_auth_challenge          = arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-create-auth-challenge
+    verify_auth_challenge_response = arn:aws:lambda:us-east-1:105971623004:function:lanchonete-lambda-verify-auth-challenge
   }
 
   password_policy {
