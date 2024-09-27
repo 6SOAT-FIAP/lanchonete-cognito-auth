@@ -40,12 +40,23 @@ resource "aws_cognito_user_pool_client" "lanchonete_user_pool_client" {
   generate_secret = false
 }
 
+locals {
+  lambda_functions = {
+    "pre-sign-up"                    = "lanchonete-lambda-pre-sign-up"
+    "define-auth-challenge"          = "lanchonete-lambda-define-auth-challenge"
+    "create-auth-challenge"          = "lanchonete-lambda-create-auth-challenge"
+    "verify-auth-challenge-response" = "lanchonete-lambda-verify-auth-challenge"
+  }
+}
+
 resource "aws_lambda_permission" "allow_cognito_invoke" {
-  statement_id  = "AllowExecutionFromCognito"
-  action        = "lambda:InvokeFunction"
-  function_name = "lanchonete-lambda-pre-sign-up"
-  principal     = "cognito-idp.amazonaws.com"
-  source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
+  for_each     = local.lambda_functions
+  statement_id = "AllowExecutionFromCognito_${each.key}"
+  action       = "lambda:InvokeFunction"
+  function_name = each.value
+  principal    = "cognito-idp.amazonaws.com"
+  source_arn   = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
+  force_replace = true
 }
 
 resource "aws_cognito_user" "cliente_balcao" {
