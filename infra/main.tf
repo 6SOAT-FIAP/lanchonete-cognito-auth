@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 resource "aws_cognito_user_pool" "clientes_lanchonete_user_pool" {
   name              = var.user_pool_name
   mfa_configuration = var.mfa_configuration
