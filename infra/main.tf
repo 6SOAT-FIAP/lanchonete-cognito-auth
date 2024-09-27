@@ -48,8 +48,6 @@ resource "aws_cognito_user" "lanchonete_balcao_user" {
     name  = "Cliente anonimo balcao"
     email = "balcao@lanchonete.com"
   }
-
-  temporary_password = "abAB12!@"
   
   lifecycle {
     create_before_destroy = true
