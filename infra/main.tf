@@ -40,34 +40,10 @@ resource "aws_cognito_user_pool_client" "lanchonete_user_pool_client" {
   generate_secret = false
 }
 
-resource "aws_lambda_permission" "allow_cognito_invoke_pre_sign_up" {
-  statement_id  = "AllowExecutionFromCognitoPreSignUp"
+resource "aws_lambda_permission" "allow_cognito_invoke" {
+  statement_id  = "AllowExecutionFromCognito"
   action        = "lambda:InvokeFunction"
   function_name = "lanchonete-lambda-pre-sign-up"
-  principal     = "cognito-idp.amazonaws.com"
-  source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-}
-
-resource "aws_lambda_permission" "allow_cognito_invoke_define_auth_challenge" {
-  statement_id  = "AllowExecutionFromCognitoDefineAuthChallenge"
-  action        = "lambda:InvokeFunction"
-  function_name = "lanchonete-lambda-define-auth-challenge"
-  principal     = "cognito-idp.amazonaws.com"
-  source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-}
-
-resource "aws_lambda_permission" "allow_cognito_invoke_create_auth_challenge" {
-  statement_id  = "AllowExecutionFromCognitoCreateAuthChallenge"
-  action        = "lambda:InvokeFunction"
-  function_name = "lanchonete-lambda-create-auth-challenge"
-  principal     = "cognito-idp.amazonaws.com"
-  source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-}
-
-resource "aws_lambda_permission" "allow_cognito_invoke_verify_auth_challenge_response" {
-  statement_id  = "AllowExecutionFromCognitoVerifyAuthChallengeResponse"
-  action        = "lambda:InvokeFunction"
-  function_name = "lanchonete-lambda-verify-auth-challenge"
   principal     = "cognito-idp.amazonaws.com"
   source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
 }
