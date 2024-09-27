@@ -40,6 +40,14 @@ resource "aws_cognito_user_pool_client" "lanchonete_user_pool_client" {
   generate_secret = false
 }
 
+resource "aws_lambda_permission" "allow_cognito_invoke_pre_sign_up" {
+  statement_id  = "AllowExecutionFromCognitoPreSignUp"
+  action        = "lambda:InvokeFunction"
+  function_name = "lanchonete-lambda-pre-sign-up"
+  principal     = "cognito-idp.amazonaws.com"
+  source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
+}
+
 resource "aws_cognito_user" "cliente_balcao" {
   user_pool_id = aws_cognito_user_pool.clientes_lanchonete_user_pool.id
   username     = "99999999999"
