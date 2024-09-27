@@ -39,3 +39,14 @@ resource "aws_cognito_user_pool_client" "lanchonete_user_pool_client" {
   user_pool_id    = aws_cognito_user_pool.clientes_lanchonete_user_pool.id
   generate_secret = false
 }
+
+resource "aws_cognito_user" "lanchonete_balcao_user" {
+  username   = "99999999999"
+  user_pool_id = aws_cognito_user_pool.clientes_lanchonete_user_pool.id
+
+  attributes = {
+    name  = "Cliente anonimo balcao"
+  }
+
+  temporary_password = "abAB12!@"
+}
