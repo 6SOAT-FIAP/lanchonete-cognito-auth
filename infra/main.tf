@@ -60,4 +60,6 @@ resource "aws_cognito_user" "cliente_balcao" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [aws_lambda_permission.allow_cognito_invoke_pre_sign_up]
 }
