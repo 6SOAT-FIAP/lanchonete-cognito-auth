@@ -20,7 +20,7 @@ A Cognito User Pool criado por este repositório compõe o fluxo de cadastro e a
 
 ## Collection
 
-Acesse a [**collection**](assets/collection/Lanchonete.postman_collection) do Postman com todas as chamadas ao Cognito.
+Acesse a [**collection**](assets/Lanchonete autenticação.postman_collection.json) do Postman com todas as chamadas ao Cognito.
 
 ## Cliente balcão
 
