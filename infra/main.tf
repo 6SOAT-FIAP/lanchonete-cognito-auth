@@ -46,7 +46,6 @@ resource "aws_lambda_permission" "allow_cognito_invoke" {
   function_name = "lanchonete-lambda-pre-sign-up"
   principal     = "cognito-idp.amazonaws.com"
   source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-  force_replace = true
 }
 
 resource "aws_lambda_permission" "allow_cognito_invoke_define_auth_challenge" {
@@ -55,7 +54,6 @@ resource "aws_lambda_permission" "allow_cognito_invoke_define_auth_challenge" {
   function_name = "lanchonete-lambda-define-auth-challenge"
   principal     = "cognito-idp.amazonaws.com"
   source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-  force_replace = true
 }
 
 resource "aws_lambda_permission" "allow_cognito_invoke_create_auth_challenge" {
@@ -64,7 +62,6 @@ resource "aws_lambda_permission" "allow_cognito_invoke_create_auth_challenge" {
   function_name = "lanchonete-lambda-create-auth-challenge"
   principal     = "cognito-idp.amazonaws.com"
   source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-  force_replace = true
 }
 
 resource "aws_lambda_permission" "allow_cognito_invoke_verify_auth_challenge_response" {
@@ -73,7 +70,6 @@ resource "aws_lambda_permission" "allow_cognito_invoke_verify_auth_challenge_res
   function_name = "lanchonete-lambda-verify-auth-challenge"
   principal     = "cognito-idp.amazonaws.com"
   source_arn    = aws_cognito_user_pool.clientes_lanchonete_user_pool.arn
-  force_replace = true
 }
 
 resource "aws_cognito_user" "cliente_balcao" {
