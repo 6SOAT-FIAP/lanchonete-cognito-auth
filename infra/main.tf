@@ -46,7 +46,6 @@ resource "aws_cognito_user" "lanchonete_balcao_user" {
 
   attributes = {
     name  = "Cliente anonimo balcao"
+    email = balcao@lanchonete.com
   }
-
-  temporary_password = "abAB12!@"
 }
