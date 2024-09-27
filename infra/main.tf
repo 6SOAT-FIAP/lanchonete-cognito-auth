@@ -40,15 +40,15 @@ resource "aws_cognito_user_pool_client" "lanchonete_user_pool_client" {
   generate_secret = false
 }
 
-resource "aws_cognito_user" "lanchonete_balcao_user" {
-  username     = "99999999999"
+resource "aws_cognito_user" "example" {
   user_pool_id = aws_cognito_user_pool.clientes_lanchonete_user_pool.id
+  username     = "99999999999"
 
   attributes = {
     name  = "Cliente anonimo balcao"
     email = "balcao@gmail.com"
   }
-  
+
   lifecycle {
     create_before_destroy = true
   }
