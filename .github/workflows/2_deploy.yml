@@ -1,4 +1,4 @@
-name: Deploy Lambda Function
+name: Deploy Cognito User Pool
 
 on:
   push:
